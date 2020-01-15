@@ -5,6 +5,7 @@
 x = 12
 
 def change_x():
+    global x # ! Made the variable global to change it to global scope, instead of local
     x = 99
 
 change_x()
@@ -16,9 +17,11 @@ print(x)
 # This nested function has a similar problem.
 
 def outer():
+    global y
     y = 120
 
     def inner():
+        global y
         y = 999
 
     inner()
