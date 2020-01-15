@@ -6,12 +6,26 @@
 
 # YOUR CODE HERE
 
+def f1(x,y):
+    return x + y
+
 print(f1(1, 2))
 
 # Write a function f2 that takes any number of integer arguments and prints the
 # sum. Google for "python arbitrary arguments" and look for "*args"
 
 # YOUR CODE HERE
+
+def f2(*argv):
+    sum = 0
+    if isinstance(argv[0], list):
+        for i in argv[0]:
+            sum += i
+        return sum
+    for i in argv:
+        sum += i
+    return sum
+
 
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
@@ -29,6 +43,9 @@ print(f2(a))    # Should print 22
 
 # YOUR CODE HERE
 
+def f3(x,y=1):
+    return x + y
+
 print(f3(1, 2))  # Should print 3
 print(f3(8))     # Should print 9
 
@@ -42,6 +59,12 @@ print(f3(8))     # Should print 9
 # Google "python keyword arguments".
 
 # YOUR CODE HERE
+def f4(**values):
+    arguments = values.items()
+    for i in arguments:
+        print(type(i))
+    value = ", ".join(f"{param}: {value}" for param, value in arguments)
+    print(value)
 
 # Should print
 # key: a, value: 12
@@ -53,6 +76,8 @@ f4(a=12, b=30)
 # key: population, value: 121240
 # key: founded, value: "March 23, 1868"
 f4(city="Berkeley", population=121240, founded="March 23, 1868")
+
+# NEED TO FIX FOR THIS LAST CASE
 
 d = {
     "monster": "goblin",
