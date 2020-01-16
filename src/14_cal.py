@@ -22,3 +22,36 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+# print(sys.argv[1])
+
+wrong_arguments = False
+
+try:
+    sys.argv[1]
+except IndexError:
+    month = datetime.today().month
+else:
+    if int(sys.argv[1]) > 0 and int(sys.argv[1]) < 13:
+        month = int(sys.argv[1])
+    else:
+        wrong_arguments = True
+        month = datetime.today().month
+
+
+try:
+    sys.argv[2]
+except IndexError:
+    year = datetime.today().year
+else:
+    year = int(sys.argv[2])
+
+
+
+def print_calendar():
+    if wrong_arguments:
+        print("Expected month and year as inputs: 14_cal.py month [year]")
+    cal = calendar.TextCalendar()
+    print(cal.prmonth(year,month))
+
+print_calendar()
+# print(calendar.TextCalendar().prmonth(2020,1))
