@@ -61,9 +61,7 @@ print(f3(8))     # Should print 9
 # YOUR CODE HERE
 def f4(**values):
     arguments = values.items()
-    for i in arguments:
-        print(type(i))
-    value = ", ".join(f"{param}: {value}" for param, value in arguments)
+    value = "".join(f"key: {param}, value: {value}\n" for param, value in arguments)
     print(value)
 
 # Should print
@@ -85,4 +83,4 @@ d = {
 }
 
 # What thing do you have to add to make this work?
-f4(d)
+f4(**d)
